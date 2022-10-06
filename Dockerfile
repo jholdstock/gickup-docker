@@ -28,7 +28,9 @@ RUN adduser \
 WORKDIR /go/src/github.com/jholdstock/gickup
 RUN git clone https://github.com/jholdstock/gickup . && \
     CGO_ENABLED=0 GOOS=linux \
-    go build -trimpath -o app -tags safe,netgo,timetzdata .
+    go build -trimpath -o app -tags safe,netgo,timetzdata \
+      -ldflags="-s -w" \
+      .
 
 # Compress bin
 RUN upx -9 /go/src/github.com/jholdstock/gickup/app
