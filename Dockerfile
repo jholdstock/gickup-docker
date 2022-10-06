@@ -57,7 +57,4 @@ USER gickup
 
 ENTRYPOINT [ "/gickup/app" ]
 
-CMD ["/gickup/conf.yml"]
-
-# TODO: Want this or not?  I've seen conflicting info and I'm not a docker expert...
-#VOLUME [ "/home/decred" ]
+VOLUME [ "/backup" ]
