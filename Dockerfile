@@ -55,6 +55,7 @@ COPY --from=builder /go/src/github.com/jholdstock/gickup/app /gickup/app
 # Use the unprivileged user.
 USER gickup
 
-ENTRYPOINT [ "/gickup/app" ]
+VOLUME [ "/host-dir" ]
 
-VOLUME [ "/backup" ]
+ENTRYPOINT [ "/gickup/app", "/host-dir/gickup/conf.yml" ]
+
